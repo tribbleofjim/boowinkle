@@ -1,0 +1,10 @@
+<!--pages/paths/paths.wxml-->
+<map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="16"
+  bindcontroltap="controltap"  bindmarkertap="markertap" markers="{{markers}}" polyline="{{polyline}}" controls="{{controls}}"
+  bindregionchange="regionchange" show-location style="width: 100%; height:{{height}}px;" ></map>
+
+<view class="padding flex flex-direction">
+  <button class="cu-btn bg-blue margin-tb-sm lg" bindtap='beginTrack'>开始</button>
+  <button class="cu-btn bg-blue margin-tb-sm lg" bindtap='pauseTrack'>暂停</button>
+  <button class="cu-btn bg-blue margin-tb-sm lg" bindtap='endTrack'>结束</button>
+</view>
