@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>用户管理</title>
+    <link rel="stylesheet" href="../layui/css/layui.css">
+    <script type="text/javascript" src="../layui/layui.js"></script>
+</head>
+<body class="layui-layout-body">
+    <div class="layui-layout-admin">
+        <!--头部导航条-->
+        <div class="layui-header">
+            <div class="layui-logo">订票系统</div>
+            <!--导航条的右边，用户个人中心-->
+            <ul class="layui-nav layui-layout-right">
+              <li class="layui-nav-item">
+                <a href="javascript:;">
+                  <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+                  <label id="username"></label>
+                </a>
+                <dl class="layui-nav-child layui-anim layui-anim-upbit">
+                  <dd><a href="manageUser">基本资料</a></dd>
+                  <dd><a href="showManageOrders">订单管理</a></dd>
+                </dl>
+              </li>
+              <li class="layui-nav-item"><a href="unlogin">退了</a></li>
+            </ul>
+            <!--/用户个人中心-->
+        </div>
+        <!--/头部导航条-->
+
+        <!--左边的导航条-->
+        <div class="layui-side layui-bg-black">
+            <div class="layui-side-scroll">
+              <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+              <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+                <li class="layui-nav-item layui-nav-itemed">
+                  <a class="" href="index">查询购票</a>
+                  <dl class="layui-nav-child">
+                      <dd><a href="index">车次查询</a></dd>
+                      <dd><a href="javascript:;">车票购买</a></dd>
+                      <dd><a href="showManageOrders">退票改签</a></dd>
+                  </dl>
+                </li>
+                  <li class="layui-nav-item layui-nav-itemed">
+                        <a class="" href="javascript:;">后台管理</a>
+                        <dl class="layui-nav-child">
+                          <dd><a href="javascript:;" onclick="manageUsers()">用户管理</a></dd>
+                          <dd><a href="javascript:;" onclick="manageTrains()">车次管理</a></dd>
+                          <dd><a href="javascript:;" onclick="manageSeats()">坐席管理</a></dd>
+                      </dl>
+                    </li>
+              </ul>
+            </div>
+        </div>
+        <!--/左边的导航条-->
+
+        <!--内容主体区域-->
+        <div class="layui-body">
+               <div style="padding: 15px;">
+                   <div class="layui-container">
+                       <!--数据表格显示所有的坐席信息-->
+                       <div style="margin-top: 30px;">
+                            <fieldset class="layui-elem-field layui-field-title">
+                                <legend>后台用户信息</legend>
+                            </fieldset>
+                       </div>
+                       <div class="layui-row">
+                           <table class="layui-table" lay-data="{height:400, url:'/Users', page:true,
+                                            id:''}" lay-filter="users">
+                              <thead>
+                                <tr>
+                                    <th lay-data="{field:'name', width:250}">用户名</th>
+                                    <th lay-data="{field:'u_num', width:300}">身份证号</th>
+                                    <th lay-data="{field:'password', width:300}">密码</th>
+                                    <th lay-data="{field:'', width:250, toolbar:'#barDemo'}">工具</th>
+                                </tr>
+                              </thead>
+                           </table>
+                       </div>
+                       <!--/数据表格显示所有的坐席信息-->
+                   </div>
+               </div>
+        </div>
+        <!--/内容主体区域-->
+    </div>
+    <script type="text/javascript" src="../js/myindex.js"></script>
+
+    <script type="text/html" id="barDemo">
+      <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-xs" lay-event="delete">删除</button>
+      </div>
+    </script>
+
+</body>
+</html>

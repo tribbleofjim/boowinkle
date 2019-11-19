@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加座位信息</title>
+    <link rel="stylesheet" href="../layui/css/layui.css">
+    <!--引入这个JS-->
+    <script type="text/javascript" src="../layui/layui.js"></script>
+</head>
+<body class="layui-bg-gray">
+    <div class="layui-container">
+        <div class="layui-row">
+            <div class="layui-col-md5 layui-col-md-offset3" style="margin-top: 15%">
+                <div style="text-align: center">
+                    <div >
+                        <form class="layui-form" action="addSeat">
+                            <div class="layui-form-item">
+                                <lable style="
+                                      margin-left: 100px;
+                                      font-family: Dubai;
+                                      font-size: xx-large;">添加座位信息</lable>
+                            </div>
+                            <!--车次号-->
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">
+                                    <i class="layui-icon layui-icon-template-1"></i>
+                                </label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="train_num" required lay-verify="required"
+                                           placeholder="车次号" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+
+                            <!--车厢号-->
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">
+                                    <i class="layui-icon layui-icon-console"></i>
+                                </label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="c_num" required  lay-verify="required"
+                                           placeholder="车厢号" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+
+                            <!--座位号-->
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">
+                                    <i class="layui-icon layui-icon-console"></i>
+                                </label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="s_num" required  lay-verify="required"
+                                           placeholder="座位号" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+
+                            <div class="layui-form-item">
+                                <div class="layui-input-block">
+                                    <button class="layui-btn" lay-submit lay-filter="" >提交</button>
+                                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

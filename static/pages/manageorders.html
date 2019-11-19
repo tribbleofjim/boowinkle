@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>订单信息</title>
+    <link rel="stylesheet" href="../layui/css/layui.css">
+    <script type="text/javascript" src="../layui/layui.js"></script>
+</head>
+<body class="layui-layout-body">
+    <div class="layui-layout-admin">
+        <!--头部导航条-->
+        <div class="layui-header">
+            <div class="layui-logo">订票系统</div>
+            <!--导航条的右边，用户个人中心-->
+            <ul class="layui-nav layui-layout-right">
+              <li class="layui-nav-item">
+                <a href="javascript:;">
+                  <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+                  <label id="username"></label>
+                </a>
+                <dl class="layui-nav-child layui-anim layui-anim-upbit">
+                  <dd><a href="manageUser">基本资料</a></dd>
+                  <dd><a href="">订单管理</a></dd>
+                </dl>
+              </li>
+              <li class="layui-nav-item"><a href="unlogin">退了</a></li>
+            </ul>
+        </div>
+        <!--/头部导航条-->
+
+        <!--左边的导航条-->
+        <div class="layui-side layui-bg-black">
+            <div class="layui-side-scroll">
+              <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+              <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+                    <li class="layui-nav-item layui-nav-itemed">
+                      <a class="" href="javascript:;">查询购票</a>
+                      <dl class="layui-nav-child">
+                          <dd><a href="index">车次查询</a></dd>
+                          <dd><a href="javascript:;">车票购买</a></dd>
+                          <dd><a href="showManageOrders">退票改签</a></dd>
+                      </dl>
+                    </li>
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a class="" href="javascript:;">后台管理</a>
+                        <dl class="layui-nav-child">
+                          <dd><a href="javascript:;" onclick="manageUsers()">用户管理</a></dd>
+                          <dd><a href="javascript:;" onclick="manageTrains()">车次管理</a></dd>
+                          <dd><a href="javascript:;" onclick="manageSeats()">坐席管理</a></dd>
+                      </dl>
+                    </li>
+              </ul>
+            </div>
+        </div>
+        <!--/左边的导航条-->
+
+        <!--内容主体区域-->
+        <div class="layui-body">
+            <div class="layui-container">
+                <div class="layui-row">
+                    <!--数据表格显示所有的购票信息-->
+                       <div style="margin-top: 30px;">
+                            <fieldset class="layui-elem-field layui-field-title">
+                                <legend>订单信息</legend>
+                            </fieldset>
+                       </div>
+                       <div class="layui-row">
+                           <table class="layui-table" lay-data="{height:400, url:'/manageOrders', page:true,
+                                            id:'searchTickets'}" lay-filter="test">
+                              <thead>
+                                <tr>
+                                    <th lay-data="{field:'train_num', width:80}">车次号</th>
+                                    <th lay-data="{field:'date', width:120}">日期</th>
+                                    <th lay-data="{field:'c_num',width:80}">车厢号</th>
+                                    <th lay-data="{field:'s_num', width:80, sort: true}">座位号</th>
+                                    <th lay-data="{field:'starts', width:100}">出发地</th>
+                                    <th lay-data="{field:'dest',width:100}">目的地</th>
+                                    <th lay-data="{field:'p_num',width:150}">身份证号</th>
+                                    <th lay-data="{field:'name',width:150}">乘车人</th>
+                                    <th lay-data="{field:'phone',width:150}">电话号码</th>
+                                    <th lay-data="{field:'', width:120, toolbar:'#barDemo'}">退票改签</th>
+                                </tr>
+                              </thead>
+                           </table>
+                       </div>
+                    <!--/数据表格显示所有的购票信息-->
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <script type="text/javascript" src="../js/manageOrders.js"></script>
+    <script type="text/html" id="barDemo">
+      <a class="layui-btn layui-btn-xs" lay-event="refund">退票</a>
+      <a class="layui-btn layui-btn-xs" lay-event="changeTicket">改签</a>
+    </script>
+</body>
+</html>
