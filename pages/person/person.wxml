@@ -1,8 +1,0 @@
-<!--pages/person/person.wxml-->
-<!--<view class="userinfo">
-  <view class="userinfo-avatar">
-    <open-data  type="userAvatarUrl"></open-data>
-  </view>
-    <open-data type="userNickName"></open-data>
-</view>-->
-<map id="map" longitude="117.189473" latitude="36.706493" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" show-location style="width: 100%; height: 1200rpx"></map>
